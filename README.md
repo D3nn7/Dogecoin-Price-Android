@@ -1,31 +1,15 @@
+# Ðogecoin Price
 
-<h1  align="center"> Dogecoin Price</h1> <br>
+![Dogecoin](https://static.tumblr.com/ppdj5y9/Ae9mxmxtp/300coin.png)
 
-<p  align="center">
+Dogecoin Price is an Android app that allows you to see the current Dogecoin price in EURO, USD and BTC. With the meme design, the Dogecoin Price app looks like the currency.
+- [Google Play Store](https://play.google.com/store/apps/details?id=com.danny.cryptkurs)
+- [Direct download]()
 
-<a  href="https://danny.schapeit.com/">
+### Versions
 
+- [v0.1](https://github.com/D3nn7/Dogecoin-Price-Android/releases/tag/v0.1) UI & Basic funcionality
 
-</a>
-
-</p>
-
-  
-
-<p  align="center">
-
-See the current price of Dogecoin in EUR, USD and BTC in Android. Keep an eye on the Dogecoin price. 
-
-</p>
-
-  
-
-<p  align="center">
-
-<a href="https://play.google.com/store/apps/detailsid=com.danny.cryptkurs">
-
-<img  alt="Get it on Google Play"  title="Google Play"  src="http://i.imgur.com/mtGRPuM.png"  width="140">
-
-</a>
-
-</p>
+## License – Much license ⚖️
+Dogecoin Price is released under the terms of the MIT license. See
+[opensource.org](https://opensource.org/licenses/MIT)
