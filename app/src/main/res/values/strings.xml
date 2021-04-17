@@ -1,10 +1,16 @@
 <resources>
     <string name="app_name">Dogecoin Price</string>
     <string name="current_price">current price</string>
-    <string name="one_doge">1 Ð ≈</string>
+    <string name="one_doge">1</string>
     <string name="settings_menu_item">Info</string>
     <string name="creation_by">created by</string>
     <string name="d3nn7">D3nn7</string>
     <string name="third_party">Third Party</string>
     <string name="special_thanks">Special Thanks to</string>
+    <string name="cancel">cancel</string>
+    <string name="set">set</string>
+    <string name="set_doge_message">Set you amount of Dogecoin</string>
+    <string name="doge_symbol">Ð ≈</string>
+    <string name="version"> version: </string>
+    <string name="current_version">v0.2</string>
 </resources>
