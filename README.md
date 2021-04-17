@@ -15,7 +15,8 @@ Dogecoin Price is an Android app that allows you to see the current Dogecoin pri
   - Offlinemode fixed
   - Disabled APP Rotation.
   - add custom amount of Dogecoin feature
-- [v0.1](https://github.com/D3nn7/Dogecoin-Price-Android/releases/tag/v0.1) UI & Basic funcionality
+- [v0.1](https://github.com/D3nn7/Dogecoin-Price-Android/releases/tag/v0.1) 
+  - UI & Basic funcionality
 
 ## License – Much license ⚖️
 Dogecoin Price is released under the terms of the MIT license. See
