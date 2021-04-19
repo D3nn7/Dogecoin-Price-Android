@@ -5,5 +5,6 @@
     "Critical bug fixed: if the input number was to large, the app has crashed",
     "Update feature added. Now the app check for updates."
   ],
-  "date": "19.04.2021"
+  "date": "19.04.2021",
+  "update-url": "https://github.com/D3nn7/Dogecoin-Price-Android/releases/download/v0.2.1/dogecoin-price-v0.2.1.apk"
 }
