@@ -12,13 +12,16 @@ Dogecoin Price is an Android app that allows you to see the current Dogecoin pri
 
 ### Versions
 
-- [v0.2](https://github.com/D3nn7/Dogecoin-Price-Android/releases/tag/v0.2) 
+- [v0.2.1](https://github.com/D3nn7/Dogecoin-Price-Android/releases/tag/v0.2.1)
+  - Critical bug fixed: if the input number was to large, the app has crashed
+  - Update feature added. Now the app check for updates.
+- [v0.2](https://github.com/D3nn7/Dogecoin-Price-Android/releases/tag/v0.2)
   - Darkmode fixed
   - Binance Button fixed
   - Offlinemode fixed
   - Disabled APP Rotation.
   - add custom amount of Dogecoin feature
-- [v0.1](https://github.com/D3nn7/Dogecoin-Price-Android/releases/tag/v0.1) 
+- [v0.1](https://github.com/D3nn7/Dogecoin-Price-Android/releases/tag/v0.1)
   - UI & Basic funcionality
 
 ## License – Much license ⚖️

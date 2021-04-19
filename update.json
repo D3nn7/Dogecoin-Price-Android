@@ -1,0 +1,9 @@
+{
+  "name": "Dogecoin Price",
+  "version": "0.2.1",
+  "changes": [
+    "Critical bug fixed: if the input number was to large, the app has crashed",
+    "Update feature added. Now the app check for updates."
+  ],
+  "date": "19.04.2021"
+}
