@@ -104,5 +104,8 @@ public class InfoActivity extends AppCompatActivity
 				startActivity(i);
 			}
 		});
+
+		TextView versionName = (TextView) findViewById(R.id.appVersion);
+		versionName.setText(BuildConfig.VERSION_NAME);
 	}
 }

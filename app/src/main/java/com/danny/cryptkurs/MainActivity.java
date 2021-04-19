@@ -29,6 +29,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.danny.cryptkurs.updater.Updater;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -48,25 +49,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Updater updater = new Updater();
+        updater.checkForUpdates(BuildConfig.VERSION_NAME, this);
+
         DogeAmount = (TextView)findViewById(R.id.doge);
         RelativeLayout BuyBTN =(RelativeLayout)findViewById(R.id.buyBTN);
         LinearLayout changeDogeAmount =(LinearLayout)findViewById(R.id.doge_container);
 
-        preferences = getSharedPreferences("com.danny.cryptkurs", 0);
-        if (preferences.getBoolean("firstrun", true)) {
-
-            SharedPreferences.Editor preferencesEditor = preferences.edit();
-            preferencesEditor.putString("AMOUNT", "1");
-            preferencesEditor.apply();
-
-            preferences.edit().putBoolean("firstrun", false).apply();
-        } else {
-            preferences = getSharedPreferences("com.danny.cryptkurs", 0);
-            storedDoge = preferences.getString("AMOUNT", "1");
-        }
-
-
-        DogeAmount.setText(storedDoge);
+        setPreferences();
 
         BuyBTN.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -89,6 +79,26 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void setPreferences()
+    {
+        preferences = getSharedPreferences("com.danny.cryptkurs", 0);
+        if (preferences.getBoolean("firstrun", true)) {
+
+            SharedPreferences.Editor preferencesEditor = preferences.edit();
+            preferencesEditor.putString("VERSION", BuildConfig.VERSION_NAME);
+            preferencesEditor.putString("AMOUNT", "1");
+            preferencesEditor.apply();
+
+            preferences.edit().putBoolean("firstrun", false).apply();
+        } else {
+            preferences = getSharedPreferences("com.danny.cryptkurs", 0);
+            storedDoge = preferences.getString("AMOUNT", "1");
+        }
+
+
+        DogeAmount.setText(storedDoge);
+    }
+
     private void changeDoge()
     {
         preferences = getSharedPreferences("com.danny.cryptkurs", 0);
@@ -99,12 +109,18 @@ public class MainActivity extends AppCompatActivity {
         final EditText input = new EditText(this);
         input.setInputType(InputType.TYPE_CLASS_NUMBER);
         input.setRawInputType(Configuration.KEYBOARD_12KEY);
+
         input.setText(getAmount);
         builder.setView(input);
         builder.setPositiveButton(R.string.set, new DialogInterface.OnClickListener(){
 
             public void onClick(DialogInterface dialog,int id){
                 String newDogeAmount = input.getText().toString();
+                long newDogeAmountlong = Long.parseLong(input.getText().toString());
+
+                if (newDogeAmountlong > 1999999999) {
+                    newDogeAmount = "1999999999";
+                }
 
                 SharedPreferences.Editor preferencesEditor = preferences.edit();
                 preferencesEditor.putString("AMOUNT", newDogeAmount);
@@ -195,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
 
             DecimalFormat df = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
             df.setMaximumFractionDigits(340);
-            String calculateCurrencyPrice = df.format(Double.parseDouble(currencyPrice) * Integer.parseInt(storedDoge));
+            String calculateCurrencyPrice = df.format(Double.parseDouble(currencyPrice) * Long.parseLong(storedDoge));
             String calculatedPrice = null;
 
             switch (currencySymbol) {
@@ -225,14 +241,15 @@ public class MainActivity extends AppCompatActivity {
         private String round(String stringValue, boolean isBTC) {
             double value = Double.parseDouble(stringValue);
 
+
             if (isBTC) {
-                value = value * 10000000;
+                value = value * (double) 10000000;
                 value = (int) value;
-                value = (double) value / 10000000;
+                value = (double) value / (double) 10000000;
             } else {
-                value = value * 1000;
+                value = value * (double) 1000;
                 value = (int) value;
-                value = (double) value / 1000;
+                value = (double) value / (double) 1000;
             }
 
             DecimalFormat df = new DecimalFormat("0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
