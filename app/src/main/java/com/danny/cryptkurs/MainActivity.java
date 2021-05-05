@@ -3,7 +3,6 @@ package com.danny.cryptkurs;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -12,12 +11,10 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.InputType;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -43,6 +40,9 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences preferences = null;
     String storedDoge = "1";
     TextView DogeAmount = null;
+    Handler updateHandler = new Handler();
+
+    boolean isAppOffline = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,9 +75,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        updateHandler.postDelayed(runPriceUpdater, 5000);
+
         content();
 
     }
+
+    Runnable runPriceUpdater = new Runnable()
+    {
+        @Override
+        public void run()
+        {
+            content();
+            updateHandler.postDelayed(this, 5000);
+        }
+    };
 
     private void setPreferences()
     {
@@ -118,7 +130,7 @@ public class MainActivity extends AppCompatActivity {
                 String newDogeAmount = input.getText().toString();
                 long newDogeAmountlong = Long.parseLong(input.getText().toString());
 
-                if (newDogeAmountlong > 1999999999) {
+                if (newDogeAmountlong > Integer.MAX_VALUE) {
                     newDogeAmount = "1999999999";
                 }
 
@@ -151,23 +163,6 @@ public class MainActivity extends AppCompatActivity {
         getDogePrice("https://api.binance.com/api/v3/ticker/price?symbol=DOGEEUR");
         getDogePrice("https://api.binance.com/api/v3/ticker/price?symbol=DOGEBUSD");
         getDogePrice("https://api.binance.com/api/v3/ticker/price?symbol=DOGEBTC");
-        refresh(8000);
-    }
-
-    private void refresh(int milliseconds)
-    {
-        final Handler handler = new Handler();
-
-        final Runnable runnable = new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                content();
-            }
-        };
-
-        handler.postDelayed(runnable, milliseconds);
     }
 
     private void getDogePrice(String url)
@@ -181,7 +176,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onErrorResponse(VolleyError volleyError) {
                 if (volleyError instanceof NetworkError) {
-                    setErrorIntent();
+                    if (!isAppOffline) {
+                        isAppOffline = true;
+                        setErrorIntent();
+                    }
 
                 } else {
                     Toast.makeText(getApplicationContext(), "can't get data...", Toast.LENGTH_SHORT).show();
