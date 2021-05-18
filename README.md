@@ -2,6 +2,8 @@
 
 ### The development of this APP has been discontinued. For newer ones, check out the [Cryptokurs](https://github.com/D3nn7/Cryptokurs) app, which is a better and general version of the app.
 
+[![Java CI with Gradle](https://github.com/D3nn7/Dogecoin-Price-Android/actions/workflows/gradle.yml/badge.svg)](https://github.com/D3nn7/Dogecoin-Price-Android/actions/workflows/gradle.yml)
+
 ![Dogecoin](https://static.tumblr.com/ppdj5y9/Ae9mxmxtp/300coin.png)
 
 [Website](https://dogecoin.schapeit.com)
