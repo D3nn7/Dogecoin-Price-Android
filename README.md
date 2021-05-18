@@ -1,6 +1,6 @@
 # Ðogecoin Price
 
-### The development of this APP has been discontinued. For newer ones, check out the [Cryptokurs](https://github.com/D3nn7/Cryptokurs) app, which is a better and general version of the app.
+### The development of this APP has been discontinued. For newer ones, check out the [Cryptokurs](https://github.com/Slynite/Cryptokurs) app, which is a better and general version of the app.
 
 [![Java CI with Gradle](https://github.com/D3nn7/Dogecoin-Price-Android/actions/workflows/gradle.yml/badge.svg)](https://github.com/D3nn7/Dogecoin-Price-Android/actions/workflows/gradle.yml)
 
