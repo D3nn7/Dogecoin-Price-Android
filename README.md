@@ -4,6 +4,8 @@
 
 [![Java CI with Gradle](https://github.com/D3nn7/Dogecoin-Price-Android/actions/workflows/gradle.yml/badge.svg)](https://github.com/D3nn7/Dogecoin-Price-Android/actions/workflows/gradle.yml)
 
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/d3nn7)
+
 ![Dogecoin](https://static.tumblr.com/ppdj5y9/Ae9mxmxtp/300coin.png)
 
 [Website](https://dogecoin.schapeit.com)
