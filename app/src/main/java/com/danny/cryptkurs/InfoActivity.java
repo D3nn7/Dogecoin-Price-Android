@@ -1,12 +1,10 @@
 package com.danny.cryptkurs;
 
 import android.content.Intent;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -51,7 +49,7 @@ public class InfoActivity extends AppCompatActivity
 		InstagramBTN.setOnClickListener(new View.OnClickListener(){
 			@Override
 			public void onClick(View v){
-				String url = "https://www.instagram.com/d3nn7.ps/";
+				String url = "https://www.instagram.com/d3nn7.me/";
 				Intent i = new Intent(Intent.ACTION_VIEW);
 				i.setData(Uri.parse(url));
 				startActivity(i);

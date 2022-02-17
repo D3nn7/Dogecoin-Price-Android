@@ -1,13 +1,13 @@
 {
   "name": "Dogecoin Price",
-  "version": "0.2.2",
-  "critical-update": true,
+  "version": "0.2.3",
+  "critical-update": false,
   "changes": [
     "Please update the App. In this release I have fixed the Offline mode and Updater, so that is better for User experience. You cannot Use the App before you update it.",
     "bug fixes: Offline mode, Updater",
-	"App Icon updated"
+	   "App Icon updated"
   ],
-  "date": "05.05.2021",
-  "update-url": "https://github.com/D3nn7/Dogecoin-Price-Android/releases/download/v0.2.2/dogecoin-price-v0.2.2.apk",
+  "date": "17.02.2022",
+  "update-url": "https://github.com/D3nn7/Dogecoin-Price-Android/releases/download/v0.2.3/dogecoin-price-v0.2.3.apk",
   "playstore-url": "https://play.google.com/store/apps/details?id=com.danny.cryptkurs"
 }

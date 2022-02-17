@@ -38,6 +38,7 @@ import java.util.Locale;
 public class MainActivity extends AppCompatActivity {
 
     SharedPreferences preferences = null;
+    String preferences_firstrun = "firstrun";
     String storedDoge = "1";
     TextView DogeAmount = null;
     Handler updateHandler = new Handler();
@@ -53,20 +54,9 @@ public class MainActivity extends AppCompatActivity {
         updater.checkForUpdates(BuildConfig.VERSION_NAME, this);
 
         DogeAmount = (TextView)findViewById(R.id.doge);
-        RelativeLayout BuyBTN =(RelativeLayout)findViewById(R.id.buyBTN);
         LinearLayout changeDogeAmount =(LinearLayout)findViewById(R.id.doge_container);
 
         setPreferences();
-
-        BuyBTN.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v){
-                String url = "https://www.binance.com/en/register?ref=AVSNP990";
-                Intent i = new Intent(Intent.ACTION_VIEW);
-                i.setData(Uri.parse(url));
-                startActivity(i);
-            }
-        });
 
         changeDogeAmount.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -94,14 +84,14 @@ public class MainActivity extends AppCompatActivity {
     private void setPreferences()
     {
         preferences = getSharedPreferences("com.danny.cryptkurs", 0);
-        if (preferences.getBoolean("firstrun", true)) {
+        if (preferences.getBoolean(preferences_firstrun, true)) {
 
             SharedPreferences.Editor preferencesEditor = preferences.edit();
             preferencesEditor.putString("VERSION", BuildConfig.VERSION_NAME);
             preferencesEditor.putString("AMOUNT", "1");
             preferencesEditor.apply();
 
-            preferences.edit().putBoolean("firstrun", false).apply();
+            preferences.edit().putBoolean(preferences_firstrun, false).apply();
         } else {
             preferences = getSharedPreferences("com.danny.cryptkurs", 0);
             storedDoge = preferences.getString("AMOUNT", "1");
@@ -181,8 +171,6 @@ public class MainActivity extends AppCompatActivity {
                         setErrorIntent();
                     }
 
-                } else {
-                    Toast.makeText(getApplicationContext(), "can't get data...", Toast.LENGTH_SHORT).show();
                 }
             }
         });

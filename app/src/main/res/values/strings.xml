@@ -13,4 +13,10 @@
     <string name="doge_symbol">Ð ≈</string>
     <string name="version"> version: </string>
     <string name="current_version">v0.2</string>
+    <string name="dogecoin_logo">Dogecoin Logo</string>
+    <string name="change_amount">change amount</string>
+    <string name="divider">-</string>
+    <string name="euro">€</string>
+    <string name="dollar">$</string>
+    <string name="bitcoin">₿</string>
 </resources>

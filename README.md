@@ -17,6 +17,14 @@ Dogecoin Price is an Android app that allows you to see the current Dogecoin pri
 
 ### Versions
 
+- [v0.2.3](https://github.com/D3nn7/Dogecoin-Price-Android/releases/tag/v0.2.3)
+  - bugfixes
+    * remove error message if API is not reachable
+    * replace jcenter with mavencentral
+    * replace update.json URL to github repo
+    * change update.json
+    * change some links
+    * remove promo banner
 - [v0.2.2](https://github.com/D3nn7/Dogecoin-Price-Android/releases/tag/v0.2.2)
   - Bug fixes: Offline mode, Updater
   - Update the App Icon

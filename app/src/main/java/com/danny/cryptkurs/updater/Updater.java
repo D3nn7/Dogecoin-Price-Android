@@ -21,7 +21,7 @@ import androidx.appcompat.app.AlertDialog;
 public class Updater
 {
 	public void checkForUpdates(String appVersion, Context context){
-		String updateUrl = "https://dogecoin.schapeit.com/update.json";
+		String updateUrl = "https://github.com/D3nn7/Dogecoin-Price-Android/blob/main/update.json";
 
 		//make request
 		StringRequest request = new StringRequest(updateUrl, new Response.Listener<String>() {
